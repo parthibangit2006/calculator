@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="calculator">
+    <div  class="resultBox">
+        <input  id="display" type="text" >
+    </div>
+    <div class="keys">
+        <button  value="" onclick="clearDisplay()" class="operators">AC</button>
+        <button  value="" onclick="delectVal()" class="operators">DEL</button>
+        <button  value="%" onclick="calculate(this.value)" class="operators">%</button>
+        <button value="/" onclick="calculate(this.value)" class="operators">/</button>
+        <button  value="7" onclick="calculate(this.value)">7</button>
+        <button value="8" onclick="calculate(this.value)">8</button>
+        <button  value="9" onclick="calculate(this.value)">9</button>
+        <button  value="+" onclick="calculate(this.value)" class="operators">+</button>
+        <button  value="4" onclick="calculate(this.value)">4</button>
+        <button  value="5" onclick="calculate(this.value)">5</button>
+        <button  value="6" onclick="calculate(this.value)">6</button>
+        <button  value="-" onclick="calculate(this.value)" class="operators">-</button>
+        <button   value="1" onclick="calculate(this.value)" >1</button>
+        <button  value="2" onclick="calculate(this.value)">2</button>
+        <button  value="3" onclick="calculate(this.value)">3</button>
+        <button value="*" onclick="calculate(this.value)" class="operators">*</button>
+        <button  value="00" onclick="calculate(this.value)">00</button>
+        <button  value="0" onclick="calculate(this.value)">0</button>
+        <button  value="." onclick="calculate(this.value)">.</button>
+        <button  value="=" onclick="result()" class="operators">=</button>
+    
+    
+    </div>
+
+    
+    
+       
+       
+       
+        
+</div>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            }
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color:hsl(0,0%,15%);
+        }
+        .keys{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 10px;
+        padding: 20px;
+      
+        
+       }
+       .calculator{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: hsl(0,0%,15%);
+        border-radius: 15px;
+        max-width: 500px;
+        overflow: hidden;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.38);;
+       }
+    button{
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        border: none;
+        color: white;
+        background-color:hsl(0,0%,30%);
+        font-weight: bold;
+        font-size: 2rem;
+        cursor: pointer;
+
+    }
+    #display{
+       
+        width: 100%;
+        padding: 20px;
+        font-size: 5rem;
+        text-align: right;
+        border: none;
+        outline: none;
+        background-color: hsl(0,0%,20%);
+        color:white;
+    }
+    button:hover{
+        background-color: rgb(233, 125, 47);
+        
+    }
+    button:active{
+        background-color: rgb(81, 252, 42);
+        
+    }
+    .operators{
+        color:orange;
+    }
+</style>
+
+<script>
+   let displayResult=document.getElementById("display")
+    function calculate(value){
+        displayResult.value +=value;
+
+    }
+
+    function result(){
+        try{
+        resultval =eval(displayResult.value)
+        displayResult.value="" 
+        displayResult.value=resultval
+        }
+        catch(ERROR){ 
+            displayResult.value="Error"}
+        
+        }
+    function clearDisplay(){
+        displayResult.value=""
+
+    }
+
+    function delectVal(){
+        let delval=displayResult.value;
+        displayResult.value=delval.toString().slice(0, -1);
+
+    }
+</script>
+</body>
+</html>
